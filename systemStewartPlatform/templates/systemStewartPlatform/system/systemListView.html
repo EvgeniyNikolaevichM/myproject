@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Просмотр систем
+{% endblock %}
+
+{% block content %}
+    <h1>Просмотр систем</h1>
+   {% if object_list %}
+        {% for system_stewart_platform in object_list %}
+        <div class="post-entry">
+          <h2><a href="{% url 'systemDetailView' system_stewart_platform.pk %}">Наименование системы: {{ system_stewart_platform.title_system }}</a></h2>
+           <p>Описание системы: {{ system_stewart_platform.discription_system }}</p>
+            <p>Закон движения системы: {{ system_stewart_platform.law_type_system }}</p>
+            <p>Размер матрицы по оси x: {{ system_stewart_platform.x_max_matrix }}</p>
+            <p>Размер матрицы по оси y: {{ system_stewart_platform.y_max_matrix }}</p>
+            <p>Пользователь: {{ system_stewart_platform.author }}</p>
+            <p>Добавлено: {{ system_stewart_platform.time_create }}</p>
+            <p>Изменено: {{ system_stewart_platform.time_update }}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+            <p>У нас нет записей</p>
+    {% endif %}
+{% endblock %}

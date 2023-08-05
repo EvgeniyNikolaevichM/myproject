@@ -1,0 +1,61 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block content %}
+    <h1>Системы stewart platform </h1>
+    <p1>Данная система состоит из stewart-платформ и может использоваться как испытательный стенд.
+        Управляется система на базе сетевого микроконтроллера. Разработанный WEB-конструктор с
+        распределенной системой SAAS позволяет в режиме онлайн изменять систему
+        (менять количество, расположение и характеристики), для моделирования сложных поверхностей под
+        конкретную задачу. Конструктор отвечает за хранение, загрузку и выгрузку законов движения,
+        данных о геометрии платформы, а объект-представление позволяет пользователю видеть платформу
+        на экране под разными углами, запускать и останавливать анимацию, смотреть текущие координаты,
+        редактировать данные, хранящиеся в документе, соответственно логике работы программы.
+        Зарегистрируйтесь для того чтобы начать пользоваться конструктором.
+    </p1>
+
+<div class="container px-4 py-5" id="hanging-icons">
+    <h2 class="pb-2 border-bottom">REST API:</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+        </div>
+        <div>
+          <h3 class="fs-2">Система</h3>
+          <p>Просмотр, редактирование, удаление систем</p>
+          <a href="http://127.0.0.1:8000/api/system/" class="btn btn-primary">
+            Начать!
+          </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
+        </div>
+        <div>
+          <h3 class="fs-2">Базовый модуль</h3>
+          <p>Просмотр, редактирование, удаление базовых модулей</p>
+          <a href="http://127.0.0.1:8000/api/platform/" class="btn btn-primary">
+             Начать!
+          </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"></use></svg>
+        </div>
+        <div>
+          <h3 class="fs-2">Закон движения</h3>
+          <p>Просмотр, редактирование, удаление законов движения</p>
+          <a href="http://127.0.0.1:8000/api/law/" class="btn btn-primary">
+             Начать!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

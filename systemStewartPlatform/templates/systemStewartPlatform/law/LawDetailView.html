@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Просмотр закона
+{% endblock %}
+
+{% block content %}
+    <h1>Просмотр закона движения</h1>
+        <div class="post-entry">
+            <h2><a href="">Наименование закона: {{ law_for_platform.law_type_plat }}</a></h2>
+                <p>Амплитуда: {{ law_for_platform.amplitude }}</p>
+                <p>Координаты и параметры: {{ law_for_platform.coordinates_t }}</p>
+                <p>Пользователь: {{ law_for_platform.author }}</p>
+                <p>Добавлено: {{ law_for_platform.time_create }}</p>
+                <p>Изменено: {{ law_for_platform.time_update }}</p>
+         </div>
+
+  <a href='{% url 'LawEditView' law_for_platform.pk %}'>Редактирование закона</a>
+  <p><a href='{% url 'LawDeleteView' law_for_platform.pk %}'>Удаление закона</a></p>
+{% endblock %}

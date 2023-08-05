@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Удаление платформы
+{% endblock %}
+
+{% block content %}
+    <h1>Удаление платформы</h1>
+    <form action="" method="post">{% csrf_token %}
+      <p>Вы действительно хотите удалить "{{ stewart_platform.title }}"?</p>
+      <input type="submit" value="Удалить" />
+    </form>
+{% endblock %}

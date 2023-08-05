@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Просмотр платформ
+{% endblock %}
+
+{% block content %}
+    <h1>Просмотр платформ</h1>
+   {% if object_list %}
+        {% for stewart_platform in object_list %}
+        <div class="post-entry">
+          <h2><a href="{% url 'platformDetailView' stewart_platform.pk %}">{{ stewart_platform.title_platform }}</a></h2>
+                <p>Система: {{ stewart_platform.system_stewart_platform }}</p>
+                <p>Закон движения: {{ stewart_platform.law_type }}</p>
+                <p>Описание базового модуля: {{ stewart_platform.discription_platform }}</p>
+                <p>IP адрес: {{ stewart_platform.ip_adress }}</p>
+                <p>Порт подключения: {{ stewart_platform.port_platform }}</p>
+                <p>Позиция базового модуля в матрице по оси х: {{ stewart_platform.position_x_in_matrix }}</p>
+                <p>Позиция базового модуля в матрице по оси у: {{ stewart_platform.position_y_in_matrix }}</p>
+                <p>Пользователь: {{ stewart_platform.author }}</p>
+                <p>Добавлено: {{ stewart_platform.time_create }}</p>
+                <p>Изменено: {{ stewart_platform.time_update }}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+            <p>У нас нет записей</p>
+    {% endif %}
+{% endblock %}

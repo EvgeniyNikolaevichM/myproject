@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Просмотр закона
+{% endblock %}
+
+{% block content %}
+    <h1>Просмотр закона</h1>
+   {% if object_list %}
+        {% for law_for_platform in object_list %}
+        <div class="post-entry">
+          <h2><a href="{% url 'LawDetailView' law_for_platform.pk %}">Закон: {{ law_for_platform.law_type_plat }}</a></h2>
+                <p>Амплитуда: {{ law_for_platform.amplitude }}</p>
+                <p>Координаты и параметры: {{ law_for_platform.coordinates_t }}</p>
+                <p>Пользователь: {{ law_for_platform.author }}</p>
+                <p>Добавлено: {{ law_for_platform.time_create }}</p>
+                <p>Изменено: {{ law_for_platform.time_update }}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+            <p>У нас нет записей</p>
+    {% endif %}
+{% endblock %}
