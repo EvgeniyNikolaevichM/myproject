@@ -6,6 +6,7 @@
 
 {% block content %}
     <h1>Просмотр закона</h1>
+    <a href="{% url 'LawCreateView' %}">Добавить закон движения</a>
    {% if object_list %}
         {% for law_for_platform in object_list %}
         <div class="post-entry">

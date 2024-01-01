@@ -33,7 +33,8 @@ INSTALLED_APPS = [
 
     'main',
     'systemStewartPlatform',
-    'lawAPI'
+    'lawAPI',
+    'calcLaw'
 ]
 
 MIDDLEWARE = [

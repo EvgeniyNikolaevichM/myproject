@@ -6,6 +6,7 @@
 
 {% block content %}
     <h1>Просмотр систем</h1>
+    <a href="{% url 'systemCreateView' %}">Добавить систему Stewart platform</a>
    {% if object_list %}
         {% for system_stewart_platform in object_list %}
         <div class="post-entry">
