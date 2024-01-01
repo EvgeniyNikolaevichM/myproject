@@ -7,11 +7,18 @@
 {% block content %}
     <h1>Просмотр закона движения</h1>
         <div class="post-entry">
-            <h2><a href="">Наименование закона: {{ law_for_platform.law_type_plat }}</a></h2>
-                <p>Амплитуда: {{ law_for_platform.amplitude }}</p>
-                <p>Координаты и параметры: {{ law_for_platform.coordinates_t }}</p>
+            <h2><a href="">Наименование закона движения: {{ law_for_platform.law_type_plat }}</a></h2>
+                <p>Описание закона движения: {{ law_for_platform.discription_law }}</p>
+                <p>Описание закона движения JSON: {{ law_for_platform.discription_lawJSON }}</p>
+                <p>Движение по оси х: {{ law_for_platform.dx }}</p>
+                <p>Движение по оси y: {{ law_for_platform.dy }}</p>
+                <p>Движение по оси z: {{ law_for_platform.dz }}</p>
+                <p>Угол поворота PHI: {{ law_for_platform.phi }}</p>
+                <p>Угол поворота THETA: {{ law_for_platform.theta }}</p>
+                <p>Угол поворота PSI: {{ law_for_platform.psi }}</p>
+                <p>Сформированный закон движения: {{ law_for_platform.coordinates_t }}</p>
                 <p>Пользователь: {{ law_for_platform.author }}</p>
-                <p>Добавлено: {{ law_for_platform.time_create }}</p>
+                <p>Создано: {{ law_for_platform.time_create }}</p>
                 <p>Изменено: {{ law_for_platform.time_update }}</p>
          </div>
 

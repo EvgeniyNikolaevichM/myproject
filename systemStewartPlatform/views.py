@@ -1,10 +1,6 @@
 #функционально-ориентированный подход:
-import json
-
 from django.shortcuts import render, redirect
 from django.db import transaction
-
-
 # from .forms import Create_systemForm
 from .models import *
 import logging
@@ -62,12 +58,12 @@ class systemDetailView(LoginRequiredMixin, DetailView):
 class systemCreateView(LoginRequiredMixin, CreateView):
     model = system_stewart_platform
     template_name = 'systemStewartPlatform/system/systemCreateView.html'
-    fields = ['title_system', 'discription_system', 'law_type_system', 'x_max_matrix', 'y_max_matrix', 'author']
+    fields = ['title_system', 'discription_system', 'discription_systemJSON', 'discription', 'author']
 
 class systemEditView(LoginRequiredMixin, UpdateView):
     model = system_stewart_platform
     template_name = 'systemStewartPlatform/system/systemEditView.html'
-    fields = ['title_system', 'discription_system', 'law_type_system', 'x_max_matrix', 'y_max_matrix', 'author']
+    fields = ['title_system', 'discription_system', 'discription_systemJSON', 'discription', 'author']
 
 class systemDeleteView(LoginRequiredMixin, DeleteView):
     model = system_stewart_platform
@@ -85,14 +81,14 @@ class platformDetailView(LoginRequiredMixin, DetailView):
 class platformCreateView(LoginRequiredMixin, CreateView):
     model = stewart_platform
     template_name = 'systemStewartPlatform/platform/platformCreateView.html'
-    fields = ['system_stewart_platform', 'law_type', 'title_platform', 'discription_platform', 'ip_adress', 'port_platform', 'position_x_in_matrix',
-              'position_y_in_matrix', 'author']
+    fields = ['system_stewart_platform', 'law_type', 'title_platform', 'discription_platform', 'discription_platformJSON', 'SERVO_HORN', 'SERVO_ROD',
+              'PLATFORM_RADIUS', 'PLATFORM_DEFAULT_HEIGHT','BASE_DEFAULT_HEIGHT', 'author']
 
 class platformEditView(LoginRequiredMixin, UpdateView):
     model = stewart_platform
     template_name = 'systemStewartPlatform/platform/platformEditView.html'
-    fields = ['system_stewart_platform', 'law_type', 'title_platform', 'discription_platform', 'ip_adress', 'port_platform', 'position_x_in_matrix',
-              'position_y_in_matrix', 'author']
+    fields = ['system_stewart_platform', 'law_type', 'title_platform', 'discription_platform', 'discription_platformJSON', 'SERVO_HORN', 'SERVO_ROD',
+              'PLATFORM_RADIUS', 'PLATFORM_DEFAULT_HEIGHT','BASE_DEFAULT_HEIGHT', 'author']
 
 class platformDeleteView(LoginRequiredMixin, DeleteView):
     model = stewart_platform
@@ -110,12 +106,14 @@ class LawDetailView(LoginRequiredMixin, DetailView):
 class LawCreateView(LoginRequiredMixin, CreateView):
     model = law_for_platform
     template_name = 'systemStewartPlatform/law/LawCreateView.html'
-    fields = ['law_type_plat', 'amplitude', 'coordinates_t', 'author']
+    fields = ['law_type_plat', 'discription_law', 'discription_lawJSON', 'dx', 'dy', 'dz', 'phi', 'theta', 'psi', 'coordinates_t',
+              'author']
 
 class LawEditView(LoginRequiredMixin, UpdateView):
     model = law_for_platform
     template_name = 'systemStewartPlatform/law/LawEditView.html'
-    fields = ['law_type_plat', 'amplitude', 'coordinates_t', 'author']
+    fields = ['law_type_plat', 'discription_law', 'discription_lawJSON', 'dx', 'dy', 'dz', 'phi', 'theta', 'psi', 'coordinates_t',
+              'author']
 
 class LawDeleteView(LoginRequiredMixin, DeleteView):
     model = law_for_platform

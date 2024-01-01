@@ -2,12 +2,13 @@ import json
 from django.shortcuts import render, get_object_or_404
 import logging
 from calcLaw.get_Law import Servo
-from systemStewartPlatform.models import system_stewart_platform
+from systemStewartPlatform.models import law_for_platform
 
 logger = logging.getLogger('TEST_LOGGER_NAME')
 
 def systemLawView(request, pk):
-    system = get_object_or_404(system_stewart_platform, pk=pk)
+    logger.info("Сформирован закон движения")
+    law = get_object_or_404(law_for_platform, pk=1)
     SERVO_HORN = 40
     SERVO_ROD = 200
     BASE_RADIUS = 100
@@ -18,12 +19,12 @@ def systemLawView(request, pk):
     PLATFORM_DEFAULT_HEIGHT = 195
     BASE_DEFAULT_HEIGHT = 0
 
-    DX = system.x_max_matrix
-    DY = system.y_max_matrix
-    DZ = 7
-    PHI = 7
-    THETA = 0
-    PSI = 0
+    DX = law.dx
+    DY = law.dy
+    DZ = law.dz
+    PHI = law.phi
+    THETA = law.theta
+    PSI = law.psi
 
     servo0 = Servo(radius=BASE_RADIUS, height=BASE_DEFAULT_HEIGHT, base_angle_pivot=BASE_ANGLE_PIVOT_LIST[0],
                                 platform_height=PLATFORM_DEFAULT_HEIGHT, horn_length=SERVO_HORN, rod_length=SERVO_ROD,
@@ -62,11 +63,11 @@ def systemLawView(request, pk):
     ser4 = servo4.get_angle_of_rod()
     ser5 = servo5.get_angle_of_rod()
     value = [ser0, ser1, ser2, ser3, ser4, ser5]
-    law = json.dumps(value)
+    lawOK = json.dumps(value)
     data = {
-        'title': system.title_system,
-        'law': law
+        'title': law.law_type_plat,
+        'lawOK': lawOK
     }
-    system.discription_system = law
-    system.save()
+    law.discription_lawJSON = lawOK
+    law.save()
     return render(request, 'systemStewartPlatform/system/systemLawView.html', data)

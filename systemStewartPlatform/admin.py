@@ -2,9 +2,9 @@ from django.contrib import admin
 from .models import system_stewart_platform, stewart_platform, law_for_platform
 
 class system_stewart_platformAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title_system', 'law_type_system', 'time_create')
+    list_display = ('id', 'title_system', 'time_create')
     list_display_links = ('id', 'title_system')
-    search_fields = ('title_system', 'law_type_system', 'author')
+    search_fields = ('title_system', 'author')
     list_filter = ('time_create','title_system')
 
 class law_for_platformAdmin(admin.ModelAdmin):
