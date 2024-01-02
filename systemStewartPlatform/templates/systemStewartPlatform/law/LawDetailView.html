@@ -24,4 +24,15 @@
 
   <a href='{% url 'LawEditView' law_for_platform.pk %}'>Редактирование закона</a>
   <p><a href='{% url 'LawDeleteView' law_for_platform.pk %}'>Удаление закона</a></p>
+
+  <div>
+      <h3 class="fs-2">Формирование Закона движения</h3>
+      <a href="{% url 'systemLawView' law_for_platform.pk %}" class="btn btn-primary">Сформировать!</a>
+  </div>
+
+  <div>
+      <h3 class="fs-2">Передать Закон движения (REST API)</h3>
+      <a href="http://127.0.0.1:8000/api/law/" class="btn btn-primary">Передать!</a>
+  </div>
 {% endblock %}
+

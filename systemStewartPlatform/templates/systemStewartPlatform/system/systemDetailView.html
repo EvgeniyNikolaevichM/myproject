@@ -56,12 +56,7 @@ width: 100%;
   <p><a href='{% url 'systemDeleteView' system_stewart_platform.pk %}'>Удаление системы</a></p>
 
   <div>
-      <h3 class="fs-2">Формирование Закона движения для системы</h3>
-      <a href="{% url 'systemLawView' system_stewart_platform.pk %}" class="btn btn-primary">Сформировать!</a>
-  </div>
-
-  <div>
       <h3 class="fs-2">Передать Закон движения для системы</h3>
-      <a href="http://127.0.0.1:8000/api/system/1" class="btn btn-primary">Передать!</a>
+      <a href="http://127.0.0.1:8000/api/system/" class="btn btn-primary">Передать!</a>
   </div>
 {% endblock %}

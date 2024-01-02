@@ -8,7 +8,7 @@ logger = logging.getLogger('TEST_LOGGER_NAME')
 
 def systemLawView(request, pk):
     logger.info("Сформирован закон движения")
-    law = get_object_or_404(law_for_platform, pk=1)
+    law = get_object_or_404(law_for_platform, pk=pk)
     SERVO_HORN = 40
     SERVO_ROD = 200
     BASE_RADIUS = 100
@@ -68,6 +68,10 @@ def systemLawView(request, pk):
         'title': law.law_type_plat,
         'lawOK': lawOK
     }
-    law.discription_lawJSON = lawOK
-    law.save()
+    if law.discription_lawJSON is None:
+        law.discription_lawJSON = lawOK
+        law.save()
+    else:
+        law.discription_lawJSON = law.discription_lawJSON+lawOK
+        law.save()
     return render(request, 'systemStewartPlatform/system/systemLawView.html', data)

@@ -24,4 +24,9 @@
 
   <a href='{% url 'platformEditView' stewart_platform.pk %}'>Редактирование платформы</a>
   <p><a href='{% url 'platformDeleteView' stewart_platform.pk %}'>Удаление платформы</a></p>
+
+  <div>
+      <h3 class="fs-2">Передать параметры платформы (REST API)</h3>
+      <a href="http://127.0.0.1:8000/api/platform/" class="btn btn-primary">Передать!</a>
+  </div>
 {% endblock %}
