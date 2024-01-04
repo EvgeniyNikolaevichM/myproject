@@ -1,5 +1,7 @@
-# from .models import system_stewart_platform
-# from django.forms import ModelForm, TextInput, Textarea
+from .models import system_stewart_platform
+from django.forms import ModelForm, TextInput, Textarea
+
+
 #
 #
 # class Create_sytemForm(ModelForm):

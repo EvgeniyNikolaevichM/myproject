@@ -1,8 +1,8 @@
 import json
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 import logging
 from calcLaw.get_Law import Servo
-from systemStewartPlatform.models import law_for_platform
+from systemStewartPlatform.models import law_for_platform, stewart_platform, system_stewart_platform
 
 logger = logging.getLogger('TEST_LOGGER_NAME')
 
@@ -74,4 +74,27 @@ def systemLawView(request, pk):
     else:
         law.discription_lawJSON = law.discription_lawJSON+lawOK
         law.save()
+    return render(request, 'systemStewartPlatform/system/systemLawView.html', data)
+
+def ForFullLaw(request, pk):
+    global a
+    system = get_object_or_404(system_stewart_platform, pk=pk)
+    platform = get_list_or_404(stewart_platform, system_stewart_platform=system)
+    checkLaw = {}
+    i=0
+    e=0
+    while i<len(platform):
+        checkLaw[e] = platform[i].title_platform + ": " + platform[i].law_type.discription_lawJSON
+        e=e+1
+        i=i+1
+    data = {
+        'title': system.title_system,
+        'lawOK': checkLaw
+    }
+    if system.discription_systemJSON is None:
+        system.discription_systemJSON = checkLaw
+        system.save()
+    else:
+        system.discription_systemJSON = system.discription_systemJSON+checkLaw
+        system.save()
     return render(request, 'systemStewartPlatform/system/systemLawView.html', data)

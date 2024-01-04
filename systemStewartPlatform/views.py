@@ -1,6 +1,8 @@
 #функционально-ориентированный подход:
 from django.shortcuts import render, redirect
 from django.db import transaction
+from django.template import context
+
 # from .forms import Create_systemForm
 from .models import *
 import logging
@@ -50,11 +52,21 @@ class LoginRequiredMixin(object):
 class systemListView(LoginRequiredMixin, ListView):
     model = system_stewart_platform
     template_name = "systemStewartPlatform/system/systemListView.html"
-
 class systemDetailView(LoginRequiredMixin, DetailView):
     model = system_stewart_platform
     template_name = "systemStewartPlatform/system/systemDetailView.html"
 
+    # def get_context_data(self, *, object_list=None, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     if stewart_platform.system_stewart_platform == pk:
+    #         law.discription_lawJSON = lawOK
+    #         law.save()
+    #     else:
+    #         law.discription_lawJSON = law.discription_lawJSON + lawOK
+    #         law.save()
+    #     a=platformForFullLaw.title_platform
+    #     context['fullLaw'] = a
+    #     return context
 class systemCreateView(LoginRequiredMixin, CreateView):
     model = system_stewart_platform
     template_name = 'systemStewartPlatform/system/systemCreateView.html'
