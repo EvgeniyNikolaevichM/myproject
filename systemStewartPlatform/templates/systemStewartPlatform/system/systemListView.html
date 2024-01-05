@@ -11,7 +11,7 @@
         {% for system_stewart_platform in object_list %}
         <div class="post-entry">
           <h2><a href="{% url 'systemDetailView' system_stewart_platform.pk %}">Наименование системы: {{ system_stewart_platform.title_system }}</a></h2>
-            <p>Сформированный закон движения Системы: {{ system_stewart_platform.discription_system }}</p>
+{#            <p>Сформированный закон движения Системы: {{ system_stewart_platform.discription_system }}</p>#}
             <p>Сформированный закон движения Системы JSON: {{ system_stewart_platform.discription_systemJSON }}</p>
             <p>Описание системы: {{ system_stewart_platform.discription }}</p>
             <p>Пользователь: {{ system_stewart_platform.author }}</p>
