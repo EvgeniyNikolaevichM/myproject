@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-hoqyho#%6l_%+s@#i2z(4-x&^a)1!0y#86vl=x-4bblba&ms)y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['193.176.190.54', 'localhost']
 
 
 # Application definition
@@ -47,40 +47,40 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-
-    'formatters': {
-        'full': {
-            'format': '[{module} {asctime} {levelname}] {message}',
-            'style': '{',
-        },
-    },
-
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'level': 'INFO',
-            'formatter': 'full',
-        },
-        'file': {
-            'class': "logging.FileHandler",
-            'formatter': 'full',
-            'level': 'INFO',
-            'filename': 'info.log',
-        }
-    },
-
-    'loggers': {
-        'TEST_LOGGER_NAME': {
-            'handlers': ['console', 'file'],
-            'level': 'INFO',
-            'propagate': True,
-        },
-    }
-
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#
+#     'formatters': {
+#         'full': {
+#             'format': '[{module} {asctime} {levelname}] {message}',
+#             'style': '{',
+#         },
+#     },
+#
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#             'level': 'INFO',
+#             'formatter': 'full',
+#         },
+#         'file': {
+#             'class': "logging.FileHandler",
+#             'formatter': 'full',
+#             'level': 'INFO',
+#             'filename': 'info.log',
+#         }
+#     },
+#
+#     'loggers': {
+#         'TEST_LOGGER_NAME': {
+#             'handlers': ['console', 'file'],
+#             'level': 'INFO',
+#             'propagate': True,
+#         },
+#     }
+#
+# }
 
 ROOT_URLCONF = 'djangoProject.urls'
 
@@ -117,6 +117,16 @@ DATABASES = {
     }
 }
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'myproject',
+        'USER': 'myprojectuser',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
